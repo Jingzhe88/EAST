@@ -5,16 +5,16 @@ import os
 import argparse
 import numpy as np
 import tensorflow as tf
-from keras.models import load_model, model_from_json
+from keras.models import model_from_json
 
 import locality_aware_nms as nms_locality
 import lanms
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--test_data_path', type=str, default='../data/ICDAR2015/test_data')
+parser.add_argument('--test_data_path', type=str, default=r'./testImages')
 parser.add_argument('--gpu_list', type=str, default='0')
-parser.add_argument('--model_path', type=str, default='')
-parser.add_argument('--output_dir', type=str, default='tmp/eval/east_icdar2015_resnet_v1_50_rbox/')
+parser.add_argument('--model_path', type=str, default='./model/EAST_IC15+13_model.h5')
+parser.add_argument('--output_dir', type=str, default='eval_results')
 FLAGS = parser.parse_args()
 
 from model import *
